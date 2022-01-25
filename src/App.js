@@ -4,7 +4,7 @@ import axios from 'axios'
 function App() {
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/!!!!!endpointhere!!!!!')
+      const res = await axios.get('/api/jobs')
       console.log(res)
     }
     getData()
