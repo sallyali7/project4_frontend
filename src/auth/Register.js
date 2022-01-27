@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 import { registerUser } from '../lib/api.js'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
 
@@ -45,7 +45,6 @@ function Register() {
           <h5 className="card-title">Create an account</h5>
           <form className="card-text .flex-column" onSubmit={handleSubmit}>
             <label className="authLabel" htmlFor='firstName'>
-              <i className="bi bi-person-circle"></i>
             </label>
             <input className="regInput"
               placeholder='First name'
@@ -53,7 +52,6 @@ function Register() {
               onChange={handleChange}
             />
             <label className='authLabel' htmlFor='lastName'>
-              <i className="bi bi-person-fill"></i>
             </label>
             <input 
               placeholder='Last name'
@@ -61,7 +59,6 @@ function Register() {
               onChange={handleChange}
             />
             <label className='authLabel' htmlFor='email'>
-              <i className="bi bi-person-fill"></i>
             </label>
             <input
               placeholder='Email'
@@ -69,7 +66,6 @@ function Register() {
               onChange={handleChange}
             />
             <label className='authLabel' htmlFor='username'>
-              <i className="bi bi-person-circle"></i>
             </label>
             <input
               placeholder='Username'
@@ -77,7 +73,6 @@ function Register() {
               onChange={handleChange}
             />
             <label className='authLabel' htmlFor='password'>
-              <i className="bi bi-lock"></i>
             </label>
             <input
               placeholder='Password'
@@ -86,7 +81,6 @@ function Register() {
               onChange={handleChange}
             />
             <label className='authLabel' htmlFor='passwordConfirmation'>
-              <i className="bi bi-lock-fill"></i>
             </label>
             <input
               placeholder='Confirm password'
@@ -96,9 +90,9 @@ function Register() {
             />
             <button className="register btn btn-primary" type='submit' id="reg">Register</button>
           </form>
-          <Link to='/jobs'>
-            <a href="/login" className="login btn btn-primary" id="log">Login</a>
-          </Link>
+          {/* <Link> */}
+          <a href="/login" className="login btn btn-primary" id="log">Login</a>
+          {/* </Link> */}
         </div>
       </div>
     </section>

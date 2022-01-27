@@ -1,8 +1,18 @@
 import React from 'react'
 import video from './assets/video.mp4'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { removeId, removeToken } from './lib/auth.js'
 
-function LandingPage(){
+function LandingPage({ isAuth, setIsAuth }) {
+  const history = useHistory()
+
+  const handleLogout = () => {
+    setIsAuth(false)
+    removeToken()
+    removeId()
+    history.push('/')
+    // createNotification('Come back again soon!')
+  }
   return (
     <div className="container col-xxl-8 px-4 py-5">
       <div className="row flex-lg-row-reverse align-items-center g-5 py-5" id="#landinghero">
@@ -14,12 +24,24 @@ function LandingPage(){
           <h1 className="display-5 fw-bold lh-1 mb-3">Tech-Connect</h1>
           <p className="lead">Finding your career passions in Tech globally. Register to recieve updates and apply directly to our sought after Tech roles.</p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-            <Link to='/register/'>
-              <button type="button" className="btn btn-primary btn-lg px-4 me-md-2">Sign up</button>
-            </Link>
-            <Link to='/login/'>
-              <button type="button" className="btn btn-outline-secondary btn-lg px-4">Log in</button>
-            </Link>
+            {!isAuth && (
+              <><Link to='/register/'>
+                <button type="button" className="btn btn-primary btn-lg px-4 me-md-2">Sign up</button>
+              </Link>
+              <Link to='/login/'>
+                <button type="button" className="btn btn-outline-secondary btn-lg px-4">Log in</button>
+              </Link></>
+            )
+            }
+            {isAuth && (
+              <button
+                className="nav-item-logout"
+                onClick={handleLogout}
+              >Log Out
+              </button>
+            )
+            }
+            
           </div>
         </div>
       </div>

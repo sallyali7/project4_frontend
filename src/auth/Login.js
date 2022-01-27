@@ -1,8 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router'
-import { Link } from 'react-router-dom'
-import { loginUser } from '../lib/api'
-import { setToken, setId } from '../lib/api'
+// import { Link } from 'react-router-dom'
+import { loginUser } from '../lib/api.js'
+import { setToken } from '../lib/auth.js'
 
 
 function Login({ setIsAuth }) {
@@ -23,12 +23,17 @@ function Login({ setIsAuth }) {
     e.preventDefault()
 
     try {
+
       const res = await loginUser(formData)
-      setId(res.data._id)
+      console.log(res.data)
+      // setId(res.data.id)
       setToken(res.data.token)
+      console.log('ehllo')
       setIsAuth(true)
+      console.log('ello')
       // createNotification(res.data.message)
       history.push('/jobs')
+      console.log('hello')
     } catch (err) {
       // setIsError(true)
     }
@@ -61,15 +66,13 @@ function Login({ setIsAuth }) {
                 type='password'
                 onChange={handleChange}
               />
-              <Link to ='/jobs'>
-                <button type="submit" className="authButton">
+              <button type="submit" className="authButton">
             Log in
-                </button>
-              </Link>
+              </button>
             </form>
             <p className="card-text-register"><small className="text-muted">
     Don&apos;t have an account? </small>
-            <button className="regButton"><a to="/register/">Register</a></button>
+            <button className="regButton">Register</button>
             </p>
           </div>
         </div>

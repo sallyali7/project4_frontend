@@ -19,30 +19,33 @@ function App() {
   //   }
   //   getData()
   // })
+  const [isAuth, setIsAuth] = React.useState(false)
 
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar
+        isAuth={isAuth}
+        setIsAuth={setIsAuth}/>
       <Switch>
         <Route exact path='/'>
-          <LandingPage />
+          <LandingPage setIsAuth={setIsAuth}/>
         </Route>
-        <Route exact path='/register/'>
+        <Route  path='/register/'>
           <Register />
         </Route>
-        <Route exact path='/login/'>
-          <Login />
+        <Route path='/login/'>
+          <Login setIsAuth={setIsAuth}/>
         </Route>
-        <Route exact path='/jobs'>
+        <Route  path='/jobs'>
           <Jobs />
         </Route>
-        <Route exact path='/whoweare'>
+        <Route  path='/whoweare'>
           <WhoWeAre />
         </Route>
-        <Route exact path='/blogs'>
+        <Route path='/blogs'>
           <Blogs />
         </Route>
-        <Route exact path='/contactus'>
+        <Route path='/contactus'>
           <ContactUs />
         </Route>
       </Switch>

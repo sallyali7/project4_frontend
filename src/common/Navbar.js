@@ -1,6 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { removeId, removeToken } from '../lib/auth.js'
 
-function Navbar(){
+function Navbar({ isAuth, setIsAuth }) {
+  const history = useHistory()
+
+  const handleLogout = () => {
+    setIsAuth(false)
+    removeToken()
+    removeId()
+    history.push('/')
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Twelfth navbar example">
       <div className="container-fluid">
@@ -26,6 +36,15 @@ function Navbar(){
               <Link to ="/contactus" className="nav-link">Contact Us</Link>
             </li>
           </ul>
+          {isAuth && (
+            <>
+              <button
+                className="nav-item-logout"
+                onClick={handleLogout}
+              >Log Out
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
@@ -33,5 +52,5 @@ function Navbar(){
   )
 }
 
-export default Navbar
 
+export default Navbar
