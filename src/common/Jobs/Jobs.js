@@ -26,7 +26,7 @@ function Jobs (){
       <div className="container">
         {isError && <Error />}
         {isLoading && <Loading />}
-        <div className="columns is-multiline">
+        <div className="columns is-multiline jobcard">
           {jobs &&
             jobs.map(job => (
               <JobCard

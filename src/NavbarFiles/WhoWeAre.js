@@ -1,6 +1,9 @@
+import seoul from '../assets/seoul.mp4'
+
 function WhoWeAre() {
   return (
-    <h1>This is the Who We Are Page</h1>
+    <video className="center" src={seoul} loop autoPlay>
+    </video>
   )
 }
 

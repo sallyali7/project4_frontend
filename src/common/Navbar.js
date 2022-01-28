@@ -20,11 +20,15 @@ function Navbar({ isAuth, setIsAuth }) {
 
         <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
           <ul className="navbar-nav">
+            {!isAuth && (
+              <li className="nav-item">
+                <Link to ="/" className="nav-link" aria-current="page" >Home </Link>
+              </li>
+            )
+            }
+            
             <li className="nav-item">
-              <Link to ="/" className="nav-link active" aria-current="page" >Home </Link>
-            </li>
-            <li className="nav-item">
-              <Link to ="/whoweare" className="nav-link active" aria-current="page" href="#">Who We Are </Link>
+              <Link to ="/whoweare" className="nav-link" aria-current="page" href="#">Who We Are </Link>
             </li>
             <li className="nav-item">
               <Link to ="/jobs" className="nav-link">Jobs</Link>
@@ -39,7 +43,7 @@ function Navbar({ isAuth, setIsAuth }) {
           {isAuth && (
             <>
               <button
-                className="nav-item-logout"
+                className="btn btn-light"
                 onClick={handleLogout}
               >Log Out
               </button>
