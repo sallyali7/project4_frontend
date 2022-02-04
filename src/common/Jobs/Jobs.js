@@ -28,16 +28,16 @@ function Jobs (){
         {isLoading && <Loading />}
         <div className="columns is-multiline jobcard">
           {jobs &&
-            jobs.map(job => (
-              <JobCard
-                key={job.id}
-                jobId={job.id}
-                companyName={job.companyName}
-                jobDescription={job.jobDescription}
-                salary={job.salary}
-                createdAt={job.createdAt}
-              />
-            ))}
+          jobs.map(job => (
+            <JobCard
+              key={job.id}
+              jobId={job.id}
+              companyName={job.companyName}
+              jobDescription={job.jobDescription}
+              salary={job.salary}
+              createdAt={job.createdAt}
+            />
+          ))}
         </div>
       </div>
     </section>

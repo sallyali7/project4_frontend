@@ -1,10 +1,10 @@
 import axios from 'axios'
-
-const baseUrl = '/api'
+import { baseUrl } from '../config.js'
+// const baseUrl = '/api'
 
 
 export function getAllJobs() {
-  return axios.get(`${baseUrl}/jobs`)
+  return axios.get(`${baseUrl}/jobs/`)
 }
 
 export function getSingleJob(jobId) {
@@ -12,7 +12,7 @@ export function getSingleJob(jobId) {
 }
 
 export function getAllBlogs() {
-  return axios.get(`${baseUrl}/blogs`)
+  return axios.get(`${baseUrl}/blogs/`)
 }
 
 export function getSingleBlog(blogId) {
