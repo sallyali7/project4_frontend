@@ -121,7 +121,7 @@ I began by creating my setuproxy to ensure the requests are pointed at the right
 <h1> This is the HomePage </h1>
 
 ```
-I then work on the pages individually.
+I then worked on the pages individually.
 
 To get the jobs data I wrote the following function:
 
